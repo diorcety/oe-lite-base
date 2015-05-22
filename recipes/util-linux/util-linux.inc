@@ -45,8 +45,6 @@ EXTRA_OECONF += "${EXTRA_OECONF_LARGEFILE}"
 EXTRA_OECONF_LARGEFILE = " --disable-largefile"
 EXTRA_OECONF_LARGEFILE:USE_largefile = " --enable-largefile"
 
-EXTRA_OEMAKE += "V=1"
-
 # Grrrr... at least some versions of util-linux insists on having
 # an sbin dir even though it is told to put everything in bin.  At
 # least it seems to respect requests on dropping usr prefix
