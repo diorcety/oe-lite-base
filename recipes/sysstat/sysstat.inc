@@ -6,7 +6,7 @@ COMPATIBLE_HOST_ARCHS = ".*linux"
 
 SRC_URI = "http://pagesperso-orange.fr/sebastien.godard/sysstat-${PV}.tar.bz2"
 
-inherit autotools
+inherit autotools-autoreconf gettext
 
 EXTRA_OECONF += "--disable-documentation"
 
