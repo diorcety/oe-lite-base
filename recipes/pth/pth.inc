@@ -4,12 +4,12 @@ LICENSE = "GPLv2+"
 
 COMPATIBLE_HOST_ARCHS = ".*linux"
 
+RECIPE_TYPES = "machine native"
+
 inherit autotools pkgconfig library auto-package-utils binconfig
 
 require conf/fetch/gnu.conf
 SRC_URI = "${GNU_MIRROR}/pth/pth-${PV}.tar.gz"
-SRC_URI += "file://fix_for_3x_kernels.patch"
-SRC_URI += "file://pth-add-pkgconfig-support.patch"
 
 PARALLEL_MAKE = ""
 

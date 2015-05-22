@@ -1,0 +1,85 @@
+diff -urN a/pth-config.in b/pth-config.in
+--- a/pth-config.in	2006-06-08 19:54:02.000000000 +0200
++++ b/pth-config.in	2015-05-21 20:54:16.274300723 +0200
+@@ -30,17 +30,16 @@
+ prefix="@prefix@"
+ exec_prefix="@exec_prefix@"
+ 
+-pth_prefix="$prefix"
+-pth_exec_prefix="$exec_prefix"
+-pth_bindir="@bindir@"
+-pth_libdir="@libdir@"
+-pth_includedir="@includedir@"
+-pth_mandir="@mandir@"
+-pth_datadir="@datadir@"
+-pth_acdir="@datadir@/aclocal"
+-pth_cflags="@CFLAGS@"
+-pth_ldflags="@LDFLAGS@"
+-pth_libs="@LIBS@"
++exec_prefix="$exec_prefix"
++bindir="@bindir@"
++libdir="@libdir@"
++includedir="@includedir@"
++mandir="@mandir@"
++datadir="@datadir@"
++acdir="@datadir@/aclocal"
++cflags="@CFLAGS@"
++ldflags="@LDFLAGS@"
++libs="@LIBS@"
+ pth_version="@PTH_VERSION_STR@"
+ 
+ help=no
+@@ -85,40 +84,40 @@
+             all=yes
+             ;;
+         --prefix)
+-            output="$output $pth_prefix"
++            output="$output $prefix"
+             ;;
+         --exec-prefix)
+-            output="$output $pth_exec_prefix"
++            output="$output $exec_prefix"
+             ;;
+         --bindir)
+-            output="$output $pth_bindir"
++            output="$output $bindir"
+             ;;
+         --libdir)
+-            output="$output $pth_libdir"
++            output="$output $libdir"
+             ;;
+         --includedir)
+-            output="$output $pth_includedir"
++            output="$output $includedir"
+             ;;
+         --mandir)
+-            output="$output $pth_mandir"
++            output="$output $mandir"
+             ;;
+         --datadir)
+-            output="$output $pth_datadir"
++            output="$output $datadir"
+             ;;
+         --acdir)
+-            output="$output $pth_acdir"
++            output="$output $acdir"
+             ;;
+         --cflags)
+-            output="$output -I$pth_includedir"
+-            output_extra="$output_extra $pth_cflags"
++            output="$output -I$includedir"
++            output_extra="$output_extra $cflags"
+             ;;
+         --ldflags)
+-            output="$output -L$pth_libdir"
+-            output_extra="$output_extra $pth_ldflags"
++            output="$output -L$libdir"
++            output_extra="$output_extra $ldflags"
+             ;;
+         --libs)
+             output="$output -lpth"
+-            output_extra="$output_extra $pth_libs"
++            output_extra="$output_extra $libs"
+             ;;
+         * )
+             echo "pth-config:Error: Invalid option" 1>&2
