@@ -3,4 +3,6 @@ LICENSE = "LGPL-2.0+"
 
 require ${PN}.inc
 
+SRC_URI += "file://redifinition.patch"
+
 LIBRARY_VERSION = "0"
