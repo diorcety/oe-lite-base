@@ -4,8 +4,8 @@ HOMEPAGE = "http://www.gnu.org/software/gettext/gettext.html"
 
 RECIPE_TYPES = "machine native sdk"
 
-inherit c++ autotools library make-vpath
-DEPENDS_AUTORECONF = ""
+DEPENDS_AUTORECONF = "native:automake"
+inherit c++ autotools-autoreconf library make-vpath
 
 require conf/fetch/gnu.conf
 SRC_URI = "${GNU_MIRROR}/gettext/gettext-${PV}.tar.gz"
@@ -66,7 +66,7 @@ EXTRA_OECONF_GETTEXT:native = "--disable-curses --with-included-gettext"
 EXTRA_OECONF_GETTEXT:HOST_OS_mingw32 = "--disable-curses --with-included-gettext"
 
 FILES_${PN} += "${libdir}/gettext ${datadir}/gettext"
-COMMON_DEPENDS = "libintl libgettextpo libgettextlib \
+COMMON_DEPENDS = "libintl libgettextpo libgettextlib libgettextsrc \
     libiconv ${DEPENDS_LIBNCURSES} ${DEPENDS_LIBDL} libm"
 DEPENDS_${PN} = "${COMMON_DEPENDS}"
 RDEPENDS_${PN} = "${COMMON_DEPENDS}"
@@ -76,6 +76,8 @@ AUTO_PACKAGE_UTILS = "autopoint envsubst gettext gettextize gettext.sh \
 	msgattrib msgcat msgcmp msgcomm msgconv msgen msgexec msgfilter \
 	msgfmt msggrep msginit msgmerge msgunfmt msguniq ngettext \
 	recode-sr-latin xgettext"
+AUTO_PACKAGE_UTILS_RDEPENDS += "${COMMON_DEPENDS}"
+AUTO_PACKAGE_UTILS_DEPENDS += "${COMMON_DEPENDS}"
 DEPENDS_${PN}-gettext-sh = "${PN}-gettext ${PN}-ngettext"
 RDEPENDS_${PN}-gettext-sh = "${PN}-gettext ${PN}-ngettext"
 PACKAGES =+ "${PN}-utils"
