@@ -8,7 +8,7 @@ RECIPE_TYPES = "machine native sdk"
 DEPENDS = "native:m4 native:perl"
 
 require conf/fetch/gnu.conf
-SRC_URI = "${GNU_MIRROR}/autoconf/autoconf-${PV}.tar.bz2"
+SRC_URI = "${GNU_MIRROR}/autoconf/autoconf-${PV}.tar.gz"
 
 inherit autotools
 
@@ -48,3 +48,6 @@ FILES_${PN} += "${datadir}/autoconf"
 
 PACKAGES += "${PN}-emacs"
 FILES_${PN}-emacs += "${datadir}/emacs"
+
+PACKAGES += "${PN}-xemacs"
+FILES_${PN}-xemacs += "${datadir}/xemacs"
