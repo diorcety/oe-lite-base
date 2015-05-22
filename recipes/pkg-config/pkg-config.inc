@@ -7,7 +7,7 @@ HOMEPAGE = "http://pkg-config.freedesktop.org/wiki/"
 
 RECIPE_TYPES = "machine native sdk"
 
-inherit autotools-autoreconf pkgconfig
+inherit autotools-autoreconf pkgconfig gettext
 
 DEPENDS = " libglib"
 DEPENDS:>HOST_LIBC_glibc = " libdl libpthread"
@@ -21,6 +21,12 @@ SRC_HOST_SITEFILES = "${SRCDIR}/common.site ${SRCDIR}/host_cpu.site"
 acpaths = "-I ."
 
 EXTRA_OECONF = "--with-pc-path=''"
+EXTRA_OECONF_NATIVE += "GLIB_CFLAGS=\"-I${STAGE_DIR}/${HOST_TYPE}${stage_includedir}/glib-2.0 -I${STAGE_DIR}/${HOST_TYPE}${stage_libdir}/glib-2.0/include/\""
+EXTRA_OECONF_NATIVE += "GLIB_LIBS=\"-L${STAGE_DIR}/${HOST_TYPE}${stage_libdir} -lglib-2.0\""
+EXTRA_OECONF:>native = " ${EXTRA_OECONF_NATIVE}"
+
+DEPENDS_${PN} += "libintl"
+RDEPENDS_${PN} += "libintl"
 
 do_install() {
 	do_install_make
