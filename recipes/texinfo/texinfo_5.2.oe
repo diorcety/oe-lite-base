@@ -1,0 +1,8 @@
+require ${PN}.inc
+
+SRC_URI += "file://m4.patch"
+SRC_URI += "file://disable-native-tools.patch"
+SRC_URI += "file://help-discard.patch"
+SRC_URI += "${SRC_URI_NATIVE}"
+SRC_URI_NATIVE = "file://use_host_makedoc.patch"
+SRC_URI_NATIVE:native = "file://install_makedoc.patch"
