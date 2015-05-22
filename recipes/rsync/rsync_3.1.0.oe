@@ -6,7 +6,9 @@ SRC_URI = "http://rsync.samba.org/ftp/rsync/src/${PN}-${PV}.tar.gz"
 RECIPE_TYPES = "machine"
 COMPATIBLE_HOST_ARCHS = ".*linux"
 
-inherit autotools
+inherit autotools-autoreconf
+
+EXTRA_AUTORECONF="-Iaclocal.m4"
 
 DEPENDS_${PN} = "libc libgcc"
 RDEPENDS_${PN} = "libc libgcc"
