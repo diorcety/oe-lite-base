@@ -39,12 +39,12 @@ SRC_URI_SUBDIR = "${@'.'.join(d.getVar('PV', True).split('.')[:2])}"
 SRC_URI = "${GNOME_MIRROR}/glib/${SRC_URI_SUBDIR}/glib-${PV}.tar.xz"
 S = "${SRCDIR}/glib-${PV}"
 
-EXTRA_OECONF = "--disable-debug \
+EXTRA_OECONF += "--disable-debug \
 	--disable-selinux \
 	--disable-xattr \
 	--disable-gtk-doc --disable-gtk-doc-html --disable-gtk-doc-pdf \
 	--disable-man \
-	--disable-modular-tests \
+	--enable-dtrace=no \
 "
 
 EXTRA_OEMAKE += "'CFLAGS=${CFLAGS}'"
