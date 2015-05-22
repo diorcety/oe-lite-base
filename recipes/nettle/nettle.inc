@@ -7,7 +7,9 @@ COMPATIBLE_HOST_ARCHS = ".*linux .*darwin"
 require conf/fetch/gnu.conf
 SRC_URI = "${GNU_MIRROR}/${PN}/${PN}-${PV}.tar.gz"
 
-inherit c++ autotools
+inherit c++ autotools-autoreconf
+
+EXTRA_AUTORECONF="-Iaclocal.m4"
 
 DEPENDS += "libgmp"
 
