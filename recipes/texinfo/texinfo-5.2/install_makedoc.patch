@@ -1,0 +1,12 @@
+diff -urN a/info/Makefile.am b/info/Makefile.am
+--- a/info/Makefile.am	2013-04-15 23:39:09.000000000 +0200
++++ b/info/Makefile.am	2015-05-20 19:19:05.506189932 +0200
+@@ -63,7 +63,7 @@
+ # These files are not distributed.
+ DISTCLEANFILES = $(generated_sources)
+ 
+-noinst_PROGRAMS = makedoc
++bin_PROGRAMS += makedoc
+ makedoc_SOURCES = makedoc.c
+ 
+ # Files with Info commands defined that makedoc should read.

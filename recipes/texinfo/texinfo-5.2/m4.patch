@@ -1,0 +1,12 @@
+diff -urN a/configure.ac b/configure.ac
+--- a/configure.ac	2013-09-27 01:04:02.000000000 +0200
++++ b/configure.ac	2015-05-15 13:51:45.614866247 +0200
+@@ -21,6 +21,8 @@
+ AM_INIT_AUTOMAKE([1.14 dist-xz 
+                  info-in-builddir parallel-tests readme-alpha tar-ustar])
+ 
++m4_include([gnulib/m4/argz.m4])
++
+ # Where to generate output; srcdir location.
+ AC_CONFIG_HEADERS([config.h:config.in])dnl Keep filename to 8.3 for MS-DOS.
+ AC_CONFIG_SRCDIR([info/info.c])

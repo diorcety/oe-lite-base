@@ -1,0 +1,1 @@
+fbbc35c5857d11d1164c8445c78b66ad6d472072  texinfo-5.2.tar.xz

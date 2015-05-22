@@ -1,0 +1,14 @@
+diff -urN a/man/Makefile.am b/man/Makefile.am
+--- a/man/Makefile.am	2013-03-21 00:05:30.000000000 +0100
++++ b/man/Makefile.am	2015-05-20 23:06:43.635834326 +0200
+@@ -63,8 +63,8 @@
+   && $(man_rule_0) \
+   && echo cd "$$dir" '&&' $(MAKE) $(AM_MAKEFLAGS) $$program$$exe_ext \
+   &&     (cd "$$dir"  &&  $(MAKE) $(AM_MAKEFLAGS) $$program$$exe_ext) \
+-  && echo $(HELP2MAN) --name=\""$$name"\" -I "$$h2m" "$$dir/$$program" -o '$@'\
+-  &&      $(HELP2MAN) --name="$$name"     -I "$$h2m" "$$dir/$$program" -o '$@'
++  && echo $(HELP2MAN) --no-discard-stderr --name=\""$$name"\" -I "$$h2m" "$$dir/$$program" -o '$@'\
++  &&      $(HELP2MAN) --no-discard-stderr --name="$$name"     -I "$$h2m" "$$dir/$$program" -o '$@'
+ 
+ 
+ # Using help2man depends on the package version number.
