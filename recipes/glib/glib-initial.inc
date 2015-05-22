@@ -18,7 +18,10 @@ EXTRA_OECONF += 'DBUS1_LIBS=""'
 
 # Minimize external dependencies for native glib
 EXTRA_OECONF += "${EXTRA_OECONF_ICONV}"
+
+RECIPE_FLAGS += "glib_iconv"
 EXTRA_OECONF_ICONV = "--with-libiconv=no"
+EXTRA_OECONF_ICONV:USE_glib_iconv = "--with-libiconv=gnu"
 EXTRA_OECONF_ICONV:HOST_KERNEL_darwin = "--with-libiconv=native"
 EXTRA_OECONF += "--with-pcre=internal"
 EXTRA_OECONF += "--disable-fam"

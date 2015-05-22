@@ -4,7 +4,8 @@ DESCRIPTION = "GLib is a general-purpose utility library, which provides many \
 	utilities, a main loop abstraction, and so on. It works on many \
 	UNIX-like platforms, Windows, OS/2 and BeOS."
 
-inherit c++ autotools make-vpath
+
+inherit c++ autotools make-vpath gettext
 
 DEPENDS = "host-cross:gtk-doc libz libffi"
 
@@ -81,18 +82,20 @@ RDEPENDS_GLIB_UTILS:native = ""
 RDEPENDS_${PN}-utils = "${RDEPENDS_GLIB_UTILS}"
 DEPENDS_${PN}-libglib-2.0 += "libc libgcc ${DEPENDS_PCRE} ${DEPENDS_LIBDL} \
 				${DEPENDS_LIBINTL} ${DEPENDS_LIBRESOLV} \
-				${DEPENDS_THREADS}"
+				${DEPENDS_THREADS} ${DEPENDS_ICONV}"
 DEPENDS_${PN}-libgthread-2.0 += "libc ${DEPENDS_THREADS} ${DEPENDS_PCRE} \
+				${DEPENDS_ICONV} \
 				libglib-2.0"
 DEPENDS_${PN}-libgobject-2.0 += "libc libgcc libffi libgthread-2.0 \
 				${DEPENDS_THREADS} ${DEPENDS_PCRE} \
+				${DEPENDS_ICONV} \
 				libglib-2.0"
 DEPENDS_${PN}-libgmodule-2.0 += "libc ${DEPENDS_LIBDL} ${DEPENDS_PCRE} \
-				libglib-2.0 ${DEPENDS_THREADS}"
+				libglib-2.0 ${DEPENDS_THREADS} ${DEPENDS_ICONV}"
 DEPENDS_${PN}-libgio-2.0 += "libc libgcc ${DEPENDS_LIBDL} ${DEPENDS_LIBRESOLV} \
 				libz libffi libglib-2.0 libgmodule-2.0 \
 				libgobject-2.0 libgthread-2.0 ${DEPENDS_PCRE} \
-				${DEPENDS_THREADS}"
+				${DEPENDS_THREADS} ${DEPENDS_ICONV}"
 
 FILES_${PN}-libgio-2.0-dev += "${libdir}/pkgconfig/gio-*-2.0.pc"
 FILES_${PN}-libgmodule-2.0-dev += "${libdir}/pkgconfig/gmodule-*-2.0.pc"
