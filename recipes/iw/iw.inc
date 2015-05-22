@@ -9,7 +9,6 @@ DEPENDS = "${COMMON_DEPENDS}"
 DEPENDS_${PN} += "${COMMON_DEPENDS}"
 RDEPENDS_${PN} += "${COMMON_DEPENDS}"
 PROVIDES_${PN} += "util/${PN}"
-EXTRA_OEMAKE = "V=1"
 SRC_URI = "https://www.kernel.org/pub/software/network/${PN}/${PN}-${PV}.tar.gz"
 
 # git://git.sipsolutions.net/iw.git;protocol=git;${SRC_REV}
